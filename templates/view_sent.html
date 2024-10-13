@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sent Emails</title>
+</head>
+<body>
+    <h1>Sent Emails</h1>
+    <table border="1">
+        <tr>
+            <th>To Address</th>
+            <th>Subject</th>
+            <th>Body</th>
+            <th>File Path</th>
+            <th>Scheduled Time</th>
+            <th>Sent Time</th>
+        </tr>
+        {% for email in emails %}
+        <tr>
+            <td>{{ email.to_address }}</td>
+            <td>{{ email.subject }}</td>
+            <td>{{ email.body }}</td>
+            <td>{{ email.file_path }}</td>
+            <td>{{ email.time }}</td>
+            <td>{{ email.sent_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add_email">Add New Email</a> | <a href="/email_data">View Email Data</a> | <a href="/logs">View Logs</a>
+</body>
+</html>

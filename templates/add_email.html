@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Email</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ui-timepicker-addon@1.6.3/dist/jquery-ui-timepicker-addon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui-timepicker-addon@1.6.3/dist/jquery-ui-timepicker-addon.min.css">
+    <script>
+        $(function() {
+            $("#send_time").datetimepicker({
+                dateFormat: "yy-mm-dd",
+                timeFormat: "HH:mm:ss"
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Add New Email</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="to_address">To Address:</label><br>
+        <input type="text" id="to_address" name="to_address" required><br><br>
+
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" required><br><br>
+
+        <label for="body">Body:</label><br>
+        <textarea id="body" name="body" required></textarea><br><br>
+
+        <label for="file">Upload Resume (optional):</label><br>
+        <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"><br><br>
+
+        <label for="send_time">Send Time:</label><br>
+        <input type="text" id="send_time" name="send_time" required><br><br>
+
+        <input type="submit" value="Add Email">
+    </form>
+    <br>
+    <a href="/email_data">View Email Data</a> | <a href="/sent">View Sent Emails</a> | <a href="/logs">View Logs</a>
+</body>
+</html>
