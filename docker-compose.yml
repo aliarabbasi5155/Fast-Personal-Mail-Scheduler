@@ -1,0 +1,21 @@
+version: '3'
+services:
+  email-sender:
+    build: .
+    container_name: email_sender
+    restart: always
+    volumes:
+      - .:/app  # Mount the entire project directory to /app
+    command: ["python", "main.py"]  # Run main.py
+    depends_on:
+      - webserver  # Ensure the webserver starts before email-sender
+
+  webserver:
+    build: .
+    container_name: webserver
+    restart: always
+    volumes:
+      - .:/app  # Mount the entire project directory to /app
+    ports:
+      - "8000:8000"  # Expose port 8000 on the host machine
+    command: ["python", "webserver.py"]  # Run webserver.py
